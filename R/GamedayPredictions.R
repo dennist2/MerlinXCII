@@ -14,15 +14,15 @@ GamedayPredictions <- function(model,test){
   high <- preds$fit + z*preds$se.fit
   MerlinXCII::NBA_current
   if(is.null(test$strWL)==TRUE){
-    test$Date <- format("%m/%d/%y")
-    tab <- data.frame(Date=test$Date,Team=test$Team,Lo=low,Avg=preds$fit,Hi=high,PrWL=ifelse(preds$fit>.5,"1","0"),Location=ifelse(test$H1A0=="0","Away","Home"),Status=ifelse(test$D0F1=="0","Dog","Favorite"),
+    test$Date <- format(test$Date,"%m/%d/%y")
+    tab <- data.frame(Date=test$Date,Team=test$Team,Lo=low,Avg=preds$fit,Hi=high,PrWL=ifelse(preds$fit>.5,"W","L"),Location=ifelse(test$H1A0=="0","Away","Home"),Status=ifelse(test$D0F1=="0","Dog","Favorite"),
                       Opponent=test$Opponent,
                       Id=test$Identify)
     
     tab[3:5] <- round(tab[3:5],digits = 3)
   } else if(is.null(test$strWL)==FALSE){
-    test$Date <- format("%m/%d/%y")
-    tab <- data.frame(Date=test$Date,Team=test$Team,Lo=low,Avg=preds$fit,Hi=high,PrWL=ifelse(preds$fit>.5,"1","0"),Location=ifelse(test$H1A0=="0","Away","Home"),Status=ifelse(test$D0F1=="0","Dog","Favorite"),
+    test$Date <- format(test$Date,"%m/%d/%y")
+    tab <- data.frame(Date=test$Date,Team=test$Team,Lo=low,Avg=preds$fit,Hi=high,PrWL=ifelse(preds$fit>.5,"W","L"),Location=ifelse(test$H1A0=="0","Away","Home"),Status=ifelse(test$D0F1=="0","Dog","Favorite"),
                       TrWL=test$strWL,
                       Opp=test$Opponent,
                       Id=test$Identify)
