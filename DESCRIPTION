@@ -17,5 +17,6 @@ Imports:
     magrittr,
     rvest,
     stringr,
-    purrr
+    purrr,
+    here
 RoxygenNote: 7.0.2
