@@ -15,7 +15,13 @@ GamedayPredictions <- function(model,test){
   MerlinXCII::NBA_current
   if(is.null(test$strWL)==TRUE){
     test$Date <- format(test$Date,"%m/%d/%y")
-    tab <- data.frame(Date=test$Date,Team=test$Team,Lo=low,Avg=preds$fit,Hi=high,PrWL=ifelse(preds$fit>.5,"W","L"),Location=ifelse(test$H1A0=="0","Away","Home"),Status=ifelse(test$D0F1=="0","Dog","Favorite"),
+    tab <- data.frame(Date=test$Date,
+                      Team=test$Team,
+                      Lo=low,
+                      Avg=preds$fit,
+                      Hi=high,
+                      PrWL=ifelse(preds$fit>.5,"W","L"),
+                      Location=ifelse(test$H1A0=="0","Away","Home"),Status=ifelse(test$D0F1=="0","Dog","Favorite"),
                       Opponent=test$Opponent,
                       Id=test$Identify)
     
@@ -31,7 +37,7 @@ GamedayPredictions <- function(model,test){
   }
   
   byGame <- tab[order(tab$Id),]
-  byGame <- byGame[,-8]
+  byGame <- byGame[,-9]
   
   Gnum1 <- seq(1,length(byGame$Team)/2,1)
   Gnum2 <- seq(1,length(byGame$Team)/2,1)
@@ -40,7 +46,7 @@ GamedayPredictions <- function(model,test){
   byGame <- data.frame(Date=byGame$Date,GameNumber=Gn,byGame[,-1])
   
   byProbability <- tab[order(tab$Avg),]
-  byProbability <- byProbability[,-8]
+  byProbability <- byProbability[,-9]
   
   return(list(ByProbability=byProbability,ByGame=byGame))
 }
