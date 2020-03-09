@@ -37,16 +37,16 @@ GamedayPredictions <- function(model,test){
   }
   
   byGame <- tab[order(tab$Id),]
-  byGame <- byGame[,-9]
+  byGame <- byGame[,-10]
   
   Gnum1 <- seq(1,length(byGame$Team)/2,1)
   Gnum2 <- seq(1,length(byGame$Team)/2,1)
   Gn <- sort(c(Gnum1,Gnum2))
   
-  byGame <- data.frame(Date=byGame$Date,GameNumber=Gn,byGame[,-1])
+  byGame <- data.frame(Date=byGame$Date,Game=Gn,byGame[,-1])
   
   byProbability <- tab[order(tab$Avg),]
-  byProbability <- byProbability[,-9]
+  byProbability <- byProbability[,-10]
   
   return(list(ByProbability=byProbability,ByGame=byGame))
 }
