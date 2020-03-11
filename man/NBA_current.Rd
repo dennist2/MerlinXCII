@@ -4,7 +4,7 @@
 \name{NBA_current}
 \alias{NBA_current}
 \title{NBA_current}
-\format{An object of class \code{data.frame} with 1352 rows and 33 columns.}
+\format{An object of class \code{data.frame} with 1376 rows and 33 columns.}
 \usage{
 NBA_current
 }

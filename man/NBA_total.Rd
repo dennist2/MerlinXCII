@@ -4,7 +4,7 @@
 \name{NBA_total}
 \alias{NBA_total}
 \title{NBA_total}
-\format{An object of class \code{data.frame} with 3728 rows and 33 columns.}
+\format{An object of class \code{data.frame} with 3704 rows and 33 columns.}
 \usage{
 NBA_total
 }
